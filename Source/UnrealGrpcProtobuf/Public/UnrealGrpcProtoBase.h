@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <grpcpp/channel.h>
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
 #include "UnrealGrpcProtoBase.generated.h"
@@ -15,5 +16,12 @@ class UNREALGRPCPROTOBUF_API UUnrealGrpcProtoBase : public UObject
 	GENERATED_BODY()
 
 public:
-	virtual void NewStub(const FString& InChannel) {};
+	virtual void NewStub() {};
+
+	virtual void SetEndPoint(const FString& InEndPoint) { EndPoint = InEndPoint; }
+
+	virtual std::shared_ptr<grpc::Channel> GetChannel(); 
+	
+protected:
+	FString EndPoint;
 };

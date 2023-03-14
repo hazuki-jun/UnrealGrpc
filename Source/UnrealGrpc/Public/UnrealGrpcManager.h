@@ -16,19 +16,23 @@ class UNREALGRPC_API UUnrealGrpcManager : public UGameInstanceSubsystem
 
 public:
 	static UUnrealGrpcManager& Get(UObject* Context);
-	
+
 	template<class T>
 	T* Create(const FString& Channel);
 
+public:
+	UPROPERTY()
+	TArray<UObject*> CachedProto;
 };
 
 template <class T>
 T* UUnrealGrpcManager::Create(const FString& Channel)
 {
-	T* NewProto = NewObject<T>();
+	T* NewProto = NewObject<T>(GetOuter());
 	if (NewProto)
 	{
-		NewProto->NewStub(Channel);
+		NewProto->SetEndPoint(Channel);
+		CachedProto.Emplace(NewProto);
 		return NewProto;
 	}
 

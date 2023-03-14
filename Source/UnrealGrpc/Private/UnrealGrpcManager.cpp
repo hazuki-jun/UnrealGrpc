@@ -10,6 +10,6 @@ UUnrealGrpcManager& UUnrealGrpcManager::Get(UObject* Context)
 	check(Context->GetWorld());
 
 	check(Context->GetWorld()->GetGameInstance());
-	
+
 	return *UGameInstance::GetSubsystem<UUnrealGrpcManager>(Context->GetWorld()->GetGameInstance());
 }

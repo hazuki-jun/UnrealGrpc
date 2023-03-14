@@ -32,12 +32,55 @@ public:
     void DeleteAllPBFiles(const FString& Path);
 
     /**
-     * @brief Generate pb files 
+     * @brief Generate pb and grpc.pb files 
      * @param ExecDirectory 
      * @param Path 
      */
     void GenerateAllPBFiles(const FString &ExecDirectory, const FString &Path);
+
+    /**
+     * @brief Generate pb files
+     * @param Command 
+     */
+    void GeneratePBFiles(TArray<FString>& Command);
+
+    /**
+     * @brief Generate grpc.pb files
+     * @param Command 
+     */
+    void GenerateGrpcPBFiles(TArray<FString>& Command);
+
 	
+    /**
+     * @brief GenerateUnrealGrpcProtoFiles
+     * @param Paths 
+     * @param ProtoFiles 
+     */
+    void GenerateUnrealGrpcProtoFiles(const TArray<FString>& Paths, const TArray<FString>& ProtoFiles);
+
+    /**
+     * @brief Disable warning
+     * @param InPath 
+     */
+    void FixProtoWarning(const FString& InPath, const FString& Suffix);
+	
+    /**
+     * @brief The template header string
+     * @return 
+     */
+    FString GetTemplateHeaderContent();
+
+	
+    /**
+     * @brief The template source string
+     * @return 
+     */
+    FString GetTemplateSourceContent();
+
+    /**
+     * @brief grpc_cpp_plugin.exe and protoc.exe path
+     * @return 
+     */
     FString GetProtocExecPath() const;
     
 private:
@@ -46,3 +89,5 @@ private:
 	FString ProtoPath;
 	FString PbPath;
 };
+
+
