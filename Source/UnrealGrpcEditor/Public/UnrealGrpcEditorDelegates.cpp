@@ -1,3 +1,5 @@
 ﻿#include "UnrealGrpcEditorDelegates.h"
 
 FUnrealGrpcEditorDelegates::FOnSettingsApplied FUnrealGrpcEditorDelegates::OnSettingsApplied;
+
+FUnrealGrpcEditorDelegates::FOnNewProtoApplied FUnrealGrpcEditorDelegates::OnNewProtoApplied;

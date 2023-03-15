@@ -20,7 +20,7 @@ void SUnrealGrpcDialog::Construct(const FArguments& InArgs)
 		.Title(LOCTEXT("UnrealGrpcWindowTitle", "UnrealGrpc Settings"))
 		.SupportsMinimize(false)
 		.SupportsMaximize(false)
-		.ClientSize(FVector2D(400, 300))
+		.ClientSize(FVector2D(600, 300))
 		[
 			SNew(SVerticalBox)
 			+ SVerticalBox::Slot()
@@ -153,7 +153,7 @@ TSharedRef<SWidget> SUnrealGrpcDialog::MakeRow(const FText& RowText, const FText
 			.Margin(FMargin(5.0f, 0.f, 0.0f, 0.0f))
 		]
 		+ SSplitter::Slot()
-		.Value(3.f)
+		.Value(4.f)
 		[
 			SNew(SHorizontalBox)
 			+SHorizontalBox::Slot()

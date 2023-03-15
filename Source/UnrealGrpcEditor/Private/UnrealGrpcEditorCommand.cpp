@@ -6,6 +6,8 @@ void FUnrealGrpcEditorCommand::RegisterCommands()
 {
 	// UI_COMMAND(UnrealGrpcMenuAction, "UnrealGrpc", "Expand menu", EUserInterfaceActionType::Button, FInputChord());
 
+	UI_COMMAND(UnrealGrpcNewProtoAction, "NewProto", "Select a exist proto to create pb", EUserInterfaceActionType::Button, FInputChord());
+	
 	UI_COMMAND(UnrealGrpcGenerateAction, "Generate", "Generate pb files", EUserInterfaceActionType::Button, FInputChord());
 
 	UI_COMMAND(UnrealGrpcSettingsAction, "Settings", "Opens the settings for UnrealGrpc", EUserInterfaceActionType::Button, FInputChord());

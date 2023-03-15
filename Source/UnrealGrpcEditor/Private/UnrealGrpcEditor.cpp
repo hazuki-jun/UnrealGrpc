@@ -1,5 +1,6 @@
 ﻿#include "UnrealGrpcEditor.h"
 
+#include "SUnrealGrpcNewProtoDialog.h"
 #include "UnrealGrpcDialog.h"
 #include "UnrealGrpcEditorCommand.h"
 #include "UnrealGrpcEditorDelegates.h"
@@ -33,6 +34,8 @@ void FUnrealGrpcEditorModule::StartupModule()
 	});
 	
 	BuildMenus();
+
+	FUnrealGrpcEditorDelegates::OnNewProtoApplied.AddRaw(this, &FUnrealGrpcEditorModule::GeneratePBFile);
 }
 
 void FUnrealGrpcEditorModule::BuildMenus()
@@ -40,6 +43,7 @@ void FUnrealGrpcEditorModule::BuildMenus()
 	ActionList = MakeShareable(new FUICommandList);
 
 	const auto UnrealGrpcCommand = FUnrealGrpcEditorCommand::Get();
+	ActionList->MapAction(UnrealGrpcCommand.UnrealGrpcNewProtoAction,FExecuteAction::CreateRaw(this, &FUnrealGrpcEditorModule::OnMenuNewProtoClicked));
 	ActionList->MapAction(UnrealGrpcCommand.UnrealGrpcGenerateAction,FExecuteAction::CreateRaw(this, &FUnrealGrpcEditorModule::OnMenuGenerateClicked));
 	ActionList->MapAction(UnrealGrpcCommand.UnrealGrpcSettingsAction,FExecuteAction::CreateRaw(this, &FUnrealGrpcEditorModule::OnMenuSettingsClicked));
 	
@@ -72,12 +76,19 @@ TSharedRef<SWidget> FUnrealGrpcEditorModule::MakeMenuWidget() const
 	
 	MenuBuilder.BeginSection(NAME_None, LOCTEXT("UnrealGrpcOptions", "UnrealGrpc Options"));
 	{
+		MenuBuilder.AddMenuEntry(FUnrealGrpcEditorCommand::Get().UnrealGrpcNewProtoAction);
 		MenuBuilder.AddMenuEntry(FUnrealGrpcEditorCommand::Get().UnrealGrpcGenerateAction);
 		MenuBuilder.AddMenuEntry(FUnrealGrpcEditorCommand::Get().UnrealGrpcSettingsAction);
 	}
 	MenuBuilder.EndSection();
 
 	return MenuBuilder.MakeWidget();
+}
+
+void FUnrealGrpcEditorModule::OnMenuNewProtoClicked()
+{
+	TSharedRef<SUnrealGrpcNewProtoDialog> UnrealGrpcDialog = SNew(SUnrealGrpcNewProtoDialog);
+	UnrealGrpcDialog->ShowWindow();
 }
 
 void FUnrealGrpcEditorModule::OnMenuGenerateClicked()
@@ -97,7 +108,7 @@ void FUnrealGrpcEditorModule::RegenerateAllPBFiles()
 	GenerateAllPBFiles(GetProtocExecPath(), ProtoPath);
 }
 
-void FUnrealGrpcEditorModule::DeleteAllPBFiles(const FString& Path)
+void FUnrealGrpcEditorModule::DeleteFiles(const FString& Path, const TArray<FString>& Suffixes)
 {
 	if (!FPaths::DirectoryExists(Path))
 	{
@@ -111,7 +122,7 @@ void FUnrealGrpcEditorModule::DeleteAllPBFiles(const FString& Path)
 		IFileManager::Get().FindFilesRecursive(AllProtoCodeFiles, *Path, *pSuffix, true, false, false);
 	};
 
-	for (const FString& Suffix : { TEXT("*.pb.cc") ,TEXT("*.pb.h") ,TEXT("*.pb.cpp") })
+	for (const FString& Suffix : Suffixes)
 	{
 		SearchSuffixFiles(Suffix);
 	}
@@ -123,6 +134,11 @@ void FUnrealGrpcEditorModule::DeleteAllPBFiles(const FString& Path)
 			IFileManager::Get().Delete(*File, true);
 		}
 	}
+}
+
+void FUnrealGrpcEditorModule::DeleteAllPBFiles(const FString& Path)
+{
+	DeleteFiles(Path, { TEXT("*.pb.cc") ,TEXT("*.pb.h") ,TEXT("*.pb.cpp") });
 }
 
 void FUnrealGrpcEditorModule::GenerateAllPBFiles(const FString &ExecDirectory, const FString& Path)
@@ -226,11 +242,37 @@ void FUnrealGrpcEditorModule::GenerateAllPBFiles(const FString &ExecDirectory, c
 		{
 			FPlatformProcess::Sleep(0.2f);
 		}
-			
+
+		DeleteFiles(PbPath, { TEXT("*.proto") });
 		FixProtoWarning(PbPath, TEXT("*.pb.cc"));
 	});
 	
 	GenerateUnrealGrpcProtoFiles(GeneratedPaths, ProtoFiles);
+}
+
+void FUnrealGrpcEditorModule::GeneratePBFile(const FString& ProtoFile, const FString& GeneratePath)
+{
+	if (ProtoFile.IsEmpty() || GeneratePath.IsEmpty())
+	{
+		return;
+	}
+
+	if (!FPaths::DirectoryExists(GeneratePath))
+	{
+		IFileManager::Get().MakeDirectory(*GeneratePath);
+	}
+
+	FString Dest = ProtoFile;
+	int32 Pos;
+	if (Dest.FindLastChar('/', Pos))
+	{
+		Dest.RemoveAt(0, Pos + 1);
+		Dest = GeneratePath / Dest;
+	}
+	
+	IFileManager::Get().Copy(*Dest, *ProtoFile);
+
+	GenerateAllPBFiles(GetProtocExecPath(), GeneratePath);
 }
 
 void FUnrealGrpcEditorModule::GeneratePBFiles(TArray<FString>& Command)

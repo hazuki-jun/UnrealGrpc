@@ -12,6 +12,11 @@ public:
 	void BuildMenus();
 	
 	TSharedRef<SWidget> MakeMenuWidget() const;
+
+	/**
+	 * @brief Select a exist proto to create pb
+	 */
+	void OnMenuNewProtoClicked();
 	
     /**
      * @brief On Generate button pressed
@@ -25,12 +30,18 @@ public:
 	
     void RegenerateAllPBFiles();
 
+	/**
+	 * @brief Deletes specified files
+	 * @param Path 
+	 */
+	void DeleteFiles(const FString& Path, const TArray<FString>& Suffixes);
+	
     /**
-     * @brief Delete all generated pb files
+     * @brief Deletes all generated pb files
      * @param Path 
      */
     void DeleteAllPBFiles(const FString& Path);
-
+	
     /**
      * @brief Generate pb and grpc.pb files 
      * @param ExecDirectory 
@@ -38,6 +49,13 @@ public:
      */
     void GenerateAllPBFiles(const FString &ExecDirectory, const FString &Path);
 
+	/**
+	 * @brief Generate a pb and grpc.pb file 
+	 * @param ProtoFile 
+	 * @param GeneratePath 
+	 */
+	void GeneratePBFile(const FString& ProtoFile, const FString& GeneratePath);
+	
     /**
      * @brief Generate pb files
      * @param Command 

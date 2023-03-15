@@ -13,6 +13,8 @@ public:
 	virtual void RegisterCommands() override;
 
 	// TSharedPtr<FUICommandInfo> UnrealGrpcMenuAction;
+
+	TSharedPtr<FUICommandInfo> UnrealGrpcNewProtoAction;
 	
 	TSharedPtr<FUICommandInfo> UnrealGrpcGenerateAction;
 	
