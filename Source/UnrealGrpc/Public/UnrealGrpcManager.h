@@ -18,21 +18,24 @@ public:
 	static UUnrealGrpcManager& Get(UObject* Context);
 
 	template<class T>
-	T* Create(const FString& Channel);
+	T* CreateProto(const FString& Channel);
 
-public:
-	UPROPERTY()
-	TArray<UObject*> CachedProto;
+// 	void RemoveProto(UObject* ProtoObjectToRemove);
+// 	
+// public:
+// 	UPROPERTY()
+// 	TArray<UObject*> CachedProto;
 };
 
 template <class T>
-T* UUnrealGrpcManager::Create(const FString& Channel)
+T* UUnrealGrpcManager::CreateProto(const FString& Channel)
 {
 	T* NewProto = NewObject<T>(GetOuter());
 	if (NewProto)
 	{
 		NewProto->SetEndPoint(Channel);
-		CachedProto.Emplace(NewProto);
+		NewProto->OnCreated();
+		// CachedProto.AddUnique(NewProto);
 		return NewProto;
 	}
 

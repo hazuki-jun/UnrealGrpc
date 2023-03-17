@@ -19,31 +19,21 @@ package PlayerInformation;
 // The greeting service definition.
 service Greeter {
   // Sends a greeting
-  rpc GetInformation (GetInformationRequest) returns (GetInformationReply) {}
-  rpc SetInformation (SetInformationRequest) returns (SetInformationReply) {}
+  rpc GetInformation (GetInformationRequest) returns (Information) {}
+  rpc SetInformation (Information) returns (SetInformationReply) {}
 }
 
 message Information {
-  string playerid = 1;
-  string playername = 2;
-  int32 playerlevel = 3;
+  string player_id = 1;
+  string player_name = 2;
+  int32 player_level = 3;
 }
 
-// GetInformation 
+
 message GetInformationRequest {
-  string playerid = 1;
-}
-
-message GetInformationReply {
-  Information info = 1;
-}
-
-// SetInformation
-message SetInformationRequest {
-  Information info = 1;
+  string player_id = 1;
 }
 
 message SetInformationReply {
-  int32 result = 1;
+  int32 player_id = 1;
 }
-

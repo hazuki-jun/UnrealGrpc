@@ -17,6 +17,12 @@
   "SupportedTargetPlatforms": [
     "Win64"
   ],
+  "Plugins": [
+    {
+      "Name": "OnlineSubsystem",
+      "Enabled": true
+    }
+  ],
   "Modules": [
     {
       "Name": "UnrealGrpc",

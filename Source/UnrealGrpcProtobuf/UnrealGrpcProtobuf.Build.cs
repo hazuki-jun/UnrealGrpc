@@ -12,6 +12,7 @@ public class UnrealGrpcProtobuf : ModuleRules
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine" });
+        PublicDependencyModuleNames.AddRange(new string[] { "OnlineSubsystem"});
 
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {

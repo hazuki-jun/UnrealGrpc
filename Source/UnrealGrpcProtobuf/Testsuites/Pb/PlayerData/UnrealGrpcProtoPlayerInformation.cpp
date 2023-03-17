@@ -11,3 +11,9 @@ void UUnrealGrpcProtoPlayerInformation::NewStub()
 {
     
 }
+
+void UUnrealGrpcProtoPlayerInformation::OnCreated()
+{
+    NewStub();
+}
+

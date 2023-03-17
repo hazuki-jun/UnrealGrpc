@@ -225,12 +225,12 @@ void FUnrealGrpcEditorModule::GenerateAllPBFiles(const FString &ExecDirectory, c
 	// GenerateGrpcPBFiles(ProtocPluginCommands);
 
 	// Pause console if need
-	// ProtocCommands.Add("pause");
+	ProtocCommands.Add("pause");
 	FString PBBat = IPluginManager::Get().FindPlugin(TEXT("UnrealGrpc"))->GetBaseDir() / "Intermediate/generate_pb.bat";
 	FFileHelper::SaveStringArrayToFile(ProtocCommands, *PBBat);
 
 	// Pause console if need
-	// ProtocPluginCommands.Add("pause");
+	ProtocPluginCommands.Add("pause");
 	FString GrpcBat = IPluginManager::Get().FindPlugin(TEXT("UnrealGrpc"))->GetBaseDir() / "Intermediate/generate_grpc_pb.bat";
 	FFileHelper::SaveStringArrayToFile(ProtocPluginCommands, *GrpcBat);
 
@@ -323,6 +323,11 @@ void FUnrealGrpcEditorModule::GenerateUnrealGrpcProtoFiles(const TArray<FString>
 	
 	for (int i = 0; i < ProtoFiles.Num(); ++i)
 	{
+		if (!Paths.IsValidIndex(i))
+		{
+			continue;
+		}
+		
 		FString ProtoContent; 
 		FFileHelper::LoadFileToString(ProtoContent, *ProtoFiles[i]);
 

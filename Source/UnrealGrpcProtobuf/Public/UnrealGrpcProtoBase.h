@@ -18,6 +18,8 @@ class UNREALGRPCPROTOBUF_API UUnrealGrpcProtoBase : public UObject
 public:
 	virtual void NewStub() {};
 
+	virtual void OnCreated() {}
+	
 	virtual void SetEndPoint(const FString& InEndPoint) { EndPoint = InEndPoint; }
 
 	virtual std::shared_ptr<grpc::Channel> GetChannel(); 

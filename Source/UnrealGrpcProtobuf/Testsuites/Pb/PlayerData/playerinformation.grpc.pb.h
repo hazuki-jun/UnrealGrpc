@@ -53,35 +53,35 @@ class Greeter final {
    public:
     virtual ~StubInterface() {}
     // Sends a greeting
-    virtual ::grpc::Status GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::PlayerInformation::GetInformationReply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::GetInformationReply>> AsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::GetInformationReply>>(AsyncGetInformationRaw(context, request, cq));
+    virtual ::grpc::Status GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::PlayerInformation::Information* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::Information>> AsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::Information>>(AsyncGetInformationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::GetInformationReply>> PrepareAsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::GetInformationReply>>(PrepareAsyncGetInformationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::Information>> PrepareAsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::Information>>(PrepareAsyncGetInformationRaw(context, request, cq));
     }
-    virtual ::grpc::Status SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::PlayerInformation::SetInformationReply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>> AsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+    virtual ::grpc::Status SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::PlayerInformation::SetInformationReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>> AsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>>(AsyncSetInformationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>> PrepareAsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>> PrepareAsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>>(PrepareAsyncSetInformationRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       // Sends a greeting
-      virtual void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -92,42 +92,42 @@ class Greeter final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::GetInformationReply>* AsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::GetInformationReply>* PrepareAsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>* AsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>* PrepareAsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::Information>* AsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::Information>* PrepareAsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>* AsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::PlayerInformation::SetInformationReply>* PrepareAsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::PlayerInformation::GetInformationReply* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>> AsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>>(AsyncGetInformationRaw(context, request, cq));
+    ::grpc::Status GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::PlayerInformation::Information* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>> AsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>>(AsyncGetInformationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>> PrepareAsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>>(PrepareAsyncGetInformationRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>> PrepareAsyncGetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>>(PrepareAsyncGetInformationRaw(context, request, cq));
     }
-    ::grpc::Status SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::PlayerInformation::SetInformationReply* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>> AsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+    ::grpc::Status SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::PlayerInformation::SetInformationReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>> AsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>>(AsyncSetInformationRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>> PrepareAsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>> PrepareAsyncSetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>>(PrepareAsyncSetInformationRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, std::function<void(::grpc::Status)>) override;
+      void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, std::function<void(::grpc::Status)>) override;
+      void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -140,10 +140,10 @@ class Greeter final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>* AsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>* PrepareAsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* AsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* PrepareAsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>* AsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>* PrepareAsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* AsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* PrepareAsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetInformation_;
     const ::grpc::internal::RpcMethod rpcmethod_SetInformation_;
   };
@@ -154,8 +154,8 @@ class Greeter final {
     Service();
     virtual ~Service();
     // Sends a greeting
-    virtual ::grpc::Status GetInformation(::grpc::ServerContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response);
-    virtual ::grpc::Status SetInformation(::grpc::ServerContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response);
+    virtual ::grpc::Status GetInformation(::grpc::ServerContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response);
+    virtual ::grpc::Status SetInformation(::grpc::ServerContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetInformation : public BaseClass {
@@ -169,11 +169,11 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/) override {
+    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetInformation(::grpc::ServerContext* context, ::PlayerInformation::GetInformationRequest* request, ::grpc::ServerAsyncResponseWriter< ::PlayerInformation::GetInformationReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetInformation(::grpc::ServerContext* context, ::PlayerInformation::GetInformationRequest* request, ::grpc::ServerAsyncResponseWriter< ::PlayerInformation::Information>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -189,11 +189,11 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
+    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetInformation(::grpc::ServerContext* context, ::PlayerInformation::SetInformationRequest* request, ::grpc::ServerAsyncResponseWriter< ::PlayerInformation::SetInformationReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetInformation(::grpc::ServerContext* context, ::PlayerInformation::Information* request, ::grpc::ServerAsyncResponseWriter< ::PlayerInformation::SetInformationReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -210,38 +210,38 @@ class Greeter final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply>(
+          new ::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response) { return this->GetInformation(context, request, response); }));}
+                     context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response) { return this->GetInformation(context, request, response); }));}
     void SetMessageAllocatorFor_GetInformation(
-        ::grpc::experimental::MessageAllocator< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_GetInformation() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/) override {
+    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetInformation(
-      ::grpc::CallbackServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* GetInformation(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -257,38 +257,38 @@ class Greeter final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply>(
+          new ::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response) { return this->SetInformation(context, request, response); }));}
+                     context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response) { return this->SetInformation(context, request, response); }));}
     void SetMessageAllocatorFor_SetInformation(
-        ::grpc::experimental::MessageAllocator< ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_SetInformation() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
+    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* SetInformation(
-      ::grpc::CallbackServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* SetInformation(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -309,7 +309,7 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/) override {
+    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -326,7 +326,7 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
+    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -343,7 +343,7 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/) override {
+    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -363,7 +363,7 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
+    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -396,7 +396,7 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/) override {
+    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -434,7 +434,7 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
+    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -455,10 +455,10 @@ class Greeter final {
     WithStreamedUnaryMethod_GetInformation() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply>(
+          ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply>* streamer) {
+                     ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information>* streamer) {
                        return this->StreamedGetInformation(context,
                          streamer);
                   }));
@@ -467,12 +467,12 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::GetInformationReply* /*response*/) override {
+    ::grpc::Status GetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::GetInformationRequest* /*request*/, ::PlayerInformation::Information* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetInformation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::PlayerInformation::GetInformationRequest,::PlayerInformation::GetInformationReply>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetInformation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::PlayerInformation::GetInformationRequest,::PlayerInformation::Information>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_SetInformation : public BaseClass {
@@ -482,10 +482,10 @@ class Greeter final {
     WithStreamedUnaryMethod_SetInformation() {
       ::grpc::Service::MarkMethodStreamed(1,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply>(
+          ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply>* streamer) {
+                     ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply>* streamer) {
                        return this->StreamedSetInformation(context,
                          streamer);
                   }));
@@ -494,12 +494,12 @@ class Greeter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::SetInformationRequest* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
+    ::grpc::Status SetInformation(::grpc::ServerContext* /*context*/, const ::PlayerInformation::Information* /*request*/, ::PlayerInformation::SetInformationReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSetInformation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::PlayerInformation::SetInformationRequest,::PlayerInformation::SetInformationReply>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSetInformation(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::PlayerInformation::Information,::PlayerInformation::SetInformationReply>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_GetInformation<WithStreamedUnaryMethod_SetInformation<Service > > StreamedUnaryService;
   typedef Service SplitStreamedService;

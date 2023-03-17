@@ -21,8 +21,10 @@ class FUnrealGrpcCreateChannelRunnable : public FRunnable
 public:
 	FUnrealGrpcCreateChannelRunnable();
 	virtual ~FUnrealGrpcCreateChannelRunnable() override;
+
 	
 	//~ Begin FRunnable Interface
+	virtual void Stop() override;
 	virtual uint32 Run() override;
 	//~ End FRunnable Interface
 	
@@ -50,6 +52,8 @@ class UNREALGRPCPROTOBUF_API UUnrealGrpcPool : public UGameInstanceSubsystem
 	friend class FUnrealGrpcCreateChannelRunnable;
 	
 public:
+	virtual void Deinitialize() override;
+	
 	static UUnrealGrpcPool& Get(UObject* Context);
 	
 	void NewChannel(const FString& EndPoint);
@@ -58,7 +62,7 @@ public:
 	
 	std::map<std::string, std::shared_ptr<grpc::Channel>> channels_pool;
 
-	void OnChannelCreated(const FString& EndPoint);
+	void OnChannelCreated(std::shared_ptr<grpc::Channel>& InChannel, const FString& EndPoint);
 
 	DECLARE_MULTICAST_DELEGATE_OneParam(FOnUnrealGrpcChannelCreated, FString)
 	FOnUnrealGrpcChannelCreated OnChannelCreatedDelegate; 
@@ -72,5 +76,7 @@ protected:
 private:
 	void InternalNewChannel(const FString& EndPoint);
 };
+
+
 
 

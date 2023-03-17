@@ -30,6 +30,9 @@ class UNREALGRPCPROTOBUF_API UUnrealGrpcProtoPlayerInformation : public UUnrealG
 public:
 	UUnrealGrpcProtoPlayerInformation(const FObjectInitializer& ObjectInitializer);
 	
+	virtual void OnCreated() override;
+	
+protected:
 	virtual void NewStub() override final;
 	
 private:

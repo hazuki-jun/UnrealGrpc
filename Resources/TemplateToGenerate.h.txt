@@ -30,6 +30,9 @@ class #ModuleName#_API UUnrealGrpcProto#PackageName# : public UUnrealGrpcProtoBa
 public:
 	#ClassName#(const FObjectInitializer& ObjectInitializer);
 	
+	virtual void OnCreated() override;
+	
+protected:
 	virtual void NewStub() override final;
 	
 private:

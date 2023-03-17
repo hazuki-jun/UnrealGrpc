@@ -41,46 +41,46 @@ Greeter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_SetInformation_(Greeter_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status Greeter::Stub::GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::PlayerInformation::GetInformationReply* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetInformation_, context, request, response);
+::grpc::Status Greeter::Stub::GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::PlayerInformation::Information* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetInformation_, context, request, response);
 }
 
-void Greeter::Stub::experimental_async::GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetInformation_, context, request, response, std::move(f));
+void Greeter::Stub::experimental_async::GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetInformation_, context, request, response, std::move(f));
 }
 
-void Greeter::Stub::experimental_async::GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Greeter::Stub::experimental_async::GetInformation(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetInformation_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>* Greeter::Stub::PrepareAsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::PlayerInformation::GetInformationReply, ::PlayerInformation::GetInformationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetInformation_, context, request);
+::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>* Greeter::Stub::PrepareAsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::PlayerInformation::Information, ::PlayerInformation::GetInformationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetInformation_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::PlayerInformation::GetInformationReply>* Greeter::Stub::AsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::PlayerInformation::Information>* Greeter::Stub::AsyncGetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::GetInformationRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetInformationRaw(context, request, cq);
   result->StartCall();
   return result;
 }
 
-::grpc::Status Greeter::Stub::SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::PlayerInformation::SetInformationReply* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetInformation_, context, request, response);
+::grpc::Status Greeter::Stub::SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::PlayerInformation::SetInformationReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetInformation_, context, request, response);
 }
 
-void Greeter::Stub::experimental_async::SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetInformation_, context, request, response, std::move(f));
+void Greeter::Stub::experimental_async::SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetInformation_, context, request, response, std::move(f));
 }
 
-void Greeter::Stub::experimental_async::SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Greeter::Stub::experimental_async::SetInformation(::grpc::ClientContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetInformation_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* Greeter::Stub::PrepareAsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::PlayerInformation::SetInformationReply, ::PlayerInformation::SetInformationRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetInformation_, context, request);
+::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* Greeter::Stub::PrepareAsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::PlayerInformation::SetInformationReply, ::PlayerInformation::Information, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetInformation_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* Greeter::Stub::AsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::SetInformationRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::PlayerInformation::SetInformationReply>* Greeter::Stub::AsyncSetInformationRaw(::grpc::ClientContext* context, const ::PlayerInformation::Information& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncSetInformationRaw(context, request, cq);
   result->StartCall();
@@ -91,20 +91,20 @@ Greeter::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Greeter_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Greeter::Service, ::PlayerInformation::GetInformationRequest, ::PlayerInformation::GetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Greeter::Service, ::PlayerInformation::GetInformationRequest, ::PlayerInformation::Information, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Greeter::Service* service,
              ::grpc::ServerContext* ctx,
              const ::PlayerInformation::GetInformationRequest* req,
-             ::PlayerInformation::GetInformationReply* resp) {
+             ::PlayerInformation::Information* resp) {
                return service->GetInformation(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Greeter_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Greeter::Service, ::PlayerInformation::SetInformationRequest, ::PlayerInformation::SetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< Greeter::Service, ::PlayerInformation::Information, ::PlayerInformation::SetInformationReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Greeter::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::PlayerInformation::SetInformationRequest* req,
+             const ::PlayerInformation::Information* req,
              ::PlayerInformation::SetInformationReply* resp) {
                return service->SetInformation(ctx, req, resp);
              }, this)));
@@ -113,14 +113,14 @@ Greeter::Service::Service() {
 Greeter::Service::~Service() {
 }
 
-::grpc::Status Greeter::Service::GetInformation(::grpc::ServerContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::GetInformationReply* response) {
+::grpc::Status Greeter::Service::GetInformation(::grpc::ServerContext* context, const ::PlayerInformation::GetInformationRequest* request, ::PlayerInformation::Information* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Greeter::Service::SetInformation(::grpc::ServerContext* context, const ::PlayerInformation::SetInformationRequest* request, ::PlayerInformation::SetInformationReply* response) {
+::grpc::Status Greeter::Service::SetInformation(::grpc::ServerContext* context, const ::PlayerInformation::Information* request, ::PlayerInformation::SetInformationReply* response) {
   (void) context;
   (void) request;
   (void) response;

@@ -16,8 +16,12 @@ FUnrealGrpcCreateChannelRunnable::~FUnrealGrpcCreateChannelRunnable()
 	if (Thread)
 	{
 		Thread->WaitForCompletion();
-		Thread->Kill(false);
 	}
+}
+
+void FUnrealGrpcCreateChannelRunnable::Stop()
+{
+	ThreadState = EUnrealGrpcCreateChannelThreadState::PendingKill;
 }
 
 uint32 FUnrealGrpcCreateChannelRunnable::Run()
@@ -33,15 +37,14 @@ uint32 FUnrealGrpcCreateChannelRunnable::Run()
 		if (ThreadState == EUnrealGrpcCreateChannelThreadState::Idle)
 		{
 			FPlatformProcess::Sleep(0.2f);
+			continue;
 		}
 		
 		std::string end_point = TCHAR_TO_UTF8(*EndPoint);
 		std::shared_ptr<grpc::Channel> ret = grpc::CreateChannel(end_point, grpc::InsecureChannelCredentials());
-
-		FScopeLock ChannelPools(&Master->ChannelsPoolCS);
-		Master->channels_pool.emplace(end_point, ret);
-		Master->OnChannelCreated(EndPoint);
 		ThreadState = EUnrealGrpcCreateChannelThreadState::Idle;
+		
+		Master->OnChannelCreated(ret, EndPoint);
 	}
 
 	return 0;
@@ -60,6 +63,14 @@ void FUnrealGrpcCreateChannelRunnable::StartThread()
 bool FUnrealGrpcCreateChannelRunnable::IsIdling()
 {
 	return ThreadState == EUnrealGrpcCreateChannelThreadState::Idle;
+}
+
+void UUnrealGrpcPool::Deinitialize()
+{
+	for (auto& UnrealGrpcCreateChannelRunnable : CreateChannelThreadPool)
+	{
+		UnrealGrpcCreateChannelRunnable->ThreadState = EUnrealGrpcCreateChannelThreadState::PendingKill; 
+	}
 }
 
 UUnrealGrpcPool& UUnrealGrpcPool::Get(UObject* Context)
@@ -117,8 +128,9 @@ std::shared_ptr<grpc::Channel> UUnrealGrpcPool::GetChannel(const FString& EndPoi
 	return ret;
 }
 
-void UUnrealGrpcPool::OnChannelCreated(const FString& EndPoint)
+void UUnrealGrpcPool::OnChannelCreated(std::shared_ptr<grpc::Channel>& InChannel, const FString& EndPoint)
 {
-	FScopeLock SC_ChannelCreatedDelegate(&ChannelCreatedDelegateCS);
+	FScopeLock Lock(&ChannelsPoolCS);
+	channels_pool.emplace(TCHAR_TO_UTF8(*EndPoint), InChannel);
 	OnChannelCreatedDelegate.Broadcast(EndPoint);
 }

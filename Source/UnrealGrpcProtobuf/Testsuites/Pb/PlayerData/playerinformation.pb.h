@@ -46,7 +46,7 @@ struct TableStruct_playerinformation_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -54,9 +54,6 @@ struct TableStruct_playerinformation_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_playerinformation_2eproto;
 namespace PlayerInformation {
-class GetInformationReply;
-class GetInformationReplyDefaultTypeInternal;
-extern GetInformationReplyDefaultTypeInternal _GetInformationReply_default_instance_;
 class GetInformationRequest;
 class GetInformationRequestDefaultTypeInternal;
 extern GetInformationRequestDefaultTypeInternal _GetInformationRequest_default_instance_;
@@ -66,16 +63,11 @@ extern InformationDefaultTypeInternal _Information_default_instance_;
 class SetInformationReply;
 class SetInformationReplyDefaultTypeInternal;
 extern SetInformationReplyDefaultTypeInternal _SetInformationReply_default_instance_;
-class SetInformationRequest;
-class SetInformationRequestDefaultTypeInternal;
-extern SetInformationRequestDefaultTypeInternal _SetInformationRequest_default_instance_;
 }  // namespace PlayerInformation
 PROTOBUF_NAMESPACE_OPEN
-template<> ::PlayerInformation::GetInformationReply* Arena::CreateMaybeMessage<::PlayerInformation::GetInformationReply>(Arena*);
 template<> ::PlayerInformation::GetInformationRequest* Arena::CreateMaybeMessage<::PlayerInformation::GetInformationRequest>(Arena*);
 template<> ::PlayerInformation::Information* Arena::CreateMaybeMessage<::PlayerInformation::Information>(Arena*);
 template<> ::PlayerInformation::SetInformationReply* Arena::CreateMaybeMessage<::PlayerInformation::SetInformationReply>(Arena*);
-template<> ::PlayerInformation::SetInformationRequest* Arena::CreateMaybeMessage<::PlayerInformation::SetInformationRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace PlayerInformation {
 
@@ -193,49 +185,49 @@ class Information PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayeridFieldNumber = 1,
-    kPlayernameFieldNumber = 2,
-    kPlayerlevelFieldNumber = 3,
+    kPlayerIdFieldNumber = 1,
+    kPlayerNameFieldNumber = 2,
+    kPlayerLevelFieldNumber = 3,
   };
-  // string playerid = 1;
-  void clear_playerid();
-  const std::string& playerid() const;
-  void set_playerid(const std::string& value);
-  void set_playerid(std::string&& value);
-  void set_playerid(const char* value);
-  void set_playerid(const char* value, size_t size);
-  std::string* mutable_playerid();
-  std::string* release_playerid();
-  void set_allocated_playerid(std::string* playerid);
+  // string player_id = 1;
+  void clear_player_id();
+  const std::string& player_id() const;
+  void set_player_id(const std::string& value);
+  void set_player_id(std::string&& value);
+  void set_player_id(const char* value);
+  void set_player_id(const char* value, size_t size);
+  std::string* mutable_player_id();
+  std::string* release_player_id();
+  void set_allocated_player_id(std::string* player_id);
   private:
-  const std::string& _internal_playerid() const;
-  void _internal_set_playerid(const std::string& value);
-  std::string* _internal_mutable_playerid();
+  const std::string& _internal_player_id() const;
+  void _internal_set_player_id(const std::string& value);
+  std::string* _internal_mutable_player_id();
   public:
 
-  // string playername = 2;
-  void clear_playername();
-  const std::string& playername() const;
-  void set_playername(const std::string& value);
-  void set_playername(std::string&& value);
-  void set_playername(const char* value);
-  void set_playername(const char* value, size_t size);
-  std::string* mutable_playername();
-  std::string* release_playername();
-  void set_allocated_playername(std::string* playername);
+  // string player_name = 2;
+  void clear_player_name();
+  const std::string& player_name() const;
+  void set_player_name(const std::string& value);
+  void set_player_name(std::string&& value);
+  void set_player_name(const char* value);
+  void set_player_name(const char* value, size_t size);
+  std::string* mutable_player_name();
+  std::string* release_player_name();
+  void set_allocated_player_name(std::string* player_name);
   private:
-  const std::string& _internal_playername() const;
-  void _internal_set_playername(const std::string& value);
-  std::string* _internal_mutable_playername();
+  const std::string& _internal_player_name() const;
+  void _internal_set_player_name(const std::string& value);
+  std::string* _internal_mutable_player_name();
   public:
 
-  // int32 playerlevel = 3;
-  void clear_playerlevel();
-  ::PROTOBUF_NAMESPACE_ID::int32 playerlevel() const;
-  void set_playerlevel(::PROTOBUF_NAMESPACE_ID::int32 value);
+  // int32 player_level = 3;
+  void clear_player_level();
+  ::PROTOBUF_NAMESPACE_ID::int32 player_level() const;
+  void set_player_level(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_playerlevel() const;
-  void _internal_set_playerlevel(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_level() const;
+  void _internal_set_player_level(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:PlayerInformation.Information)
@@ -245,9 +237,9 @@ class Information PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr playerid_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr playername_;
-  ::PROTOBUF_NAMESPACE_ID::int32 playerlevel_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 player_level_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_playerinformation_2eproto;
 };
@@ -365,22 +357,22 @@ class GetInformationRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayeridFieldNumber = 1,
+    kPlayerIdFieldNumber = 1,
   };
-  // string playerid = 1;
-  void clear_playerid();
-  const std::string& playerid() const;
-  void set_playerid(const std::string& value);
-  void set_playerid(std::string&& value);
-  void set_playerid(const char* value);
-  void set_playerid(const char* value, size_t size);
-  std::string* mutable_playerid();
-  std::string* release_playerid();
-  void set_allocated_playerid(std::string* playerid);
+  // string player_id = 1;
+  void clear_player_id();
+  const std::string& player_id() const;
+  void set_player_id(const std::string& value);
+  void set_player_id(std::string&& value);
+  void set_player_id(const char* value);
+  void set_player_id(const char* value, size_t size);
+  std::string* mutable_player_id();
+  std::string* release_player_id();
+  void set_allocated_player_id(std::string* player_id);
   private:
-  const std::string& _internal_playerid() const;
-  void _internal_set_playerid(const std::string& value);
-  std::string* _internal_mutable_playerid();
+  const std::string& _internal_player_id() const;
+  void _internal_set_player_id(const std::string& value);
+  std::string* _internal_mutable_player_id();
   public:
 
   // @@protoc_insertion_point(class_scope:PlayerInformation.GetInformationRequest)
@@ -390,297 +382,7 @@ class GetInformationRequest PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr playerid_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_playerinformation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class GetInformationReply PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:PlayerInformation.GetInformationReply) */ {
- public:
-  inline GetInformationReply() : GetInformationReply(nullptr) {}
-  virtual ~GetInformationReply();
-
-  GetInformationReply(const GetInformationReply& from);
-  GetInformationReply(GetInformationReply&& from) noexcept
-    : GetInformationReply() {
-    *this = ::std::move(from);
-  }
-
-  inline GetInformationReply& operator=(const GetInformationReply& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline GetInformationReply& operator=(GetInformationReply&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const GetInformationReply& default_instance();
-
-  static inline const GetInformationReply* internal_default_instance() {
-    return reinterpret_cast<const GetInformationReply*>(
-               &_GetInformationReply_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  friend void swap(GetInformationReply& a, GetInformationReply& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(GetInformationReply* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(GetInformationReply* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline GetInformationReply* New() const final {
-    return CreateMaybeMessage<GetInformationReply>(nullptr);
-  }
-
-  GetInformationReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<GetInformationReply>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const GetInformationReply& from);
-  void MergeFrom(const GetInformationReply& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(GetInformationReply* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "PlayerInformation.GetInformationReply";
-  }
-  protected:
-  explicit GetInformationReply(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_playerinformation_2eproto);
-    return ::descriptor_table_playerinformation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kInfoFieldNumber = 1,
-  };
-  // .PlayerInformation.Information info = 1;
-  bool has_info() const;
-  private:
-  bool _internal_has_info() const;
-  public:
-  void clear_info();
-  const ::PlayerInformation::Information& info() const;
-  ::PlayerInformation::Information* release_info();
-  ::PlayerInformation::Information* mutable_info();
-  void set_allocated_info(::PlayerInformation::Information* info);
-  private:
-  const ::PlayerInformation::Information& _internal_info() const;
-  ::PlayerInformation::Information* _internal_mutable_info();
-  public:
-  void unsafe_arena_set_allocated_info(
-      ::PlayerInformation::Information* info);
-  ::PlayerInformation::Information* unsafe_arena_release_info();
-
-  // @@protoc_insertion_point(class_scope:PlayerInformation.GetInformationReply)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PlayerInformation::Information* info_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_playerinformation_2eproto;
-};
-// -------------------------------------------------------------------
-
-class SetInformationRequest PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:PlayerInformation.SetInformationRequest) */ {
- public:
-  inline SetInformationRequest() : SetInformationRequest(nullptr) {}
-  virtual ~SetInformationRequest();
-
-  SetInformationRequest(const SetInformationRequest& from);
-  SetInformationRequest(SetInformationRequest&& from) noexcept
-    : SetInformationRequest() {
-    *this = ::std::move(from);
-  }
-
-  inline SetInformationRequest& operator=(const SetInformationRequest& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline SetInformationRequest& operator=(SetInformationRequest&& from) noexcept {
-    if (GetArena() == from.GetArena()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return GetMetadataStatic().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return GetMetadataStatic().reflection;
-  }
-  static const SetInformationRequest& default_instance();
-
-  static inline const SetInformationRequest* internal_default_instance() {
-    return reinterpret_cast<const SetInformationRequest*>(
-               &_SetInformationRequest_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  friend void swap(SetInformationRequest& a, SetInformationRequest& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(SetInformationRequest* other) {
-    if (other == this) return;
-    if (GetArena() == other->GetArena()) {
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(SetInformationRequest* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetArena() == other->GetArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline SetInformationRequest* New() const final {
-    return CreateMaybeMessage<SetInformationRequest>(nullptr);
-  }
-
-  SetInformationRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<SetInformationRequest>(arena);
-  }
-  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const SetInformationRequest& from);
-  void MergeFrom(const SetInformationRequest& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
-      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  inline void SharedCtor();
-  inline void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(SetInformationRequest* other);
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "PlayerInformation.SetInformationRequest";
-  }
-  protected:
-  explicit SetInformationRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-  private:
-  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
-    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_playerinformation_2eproto);
-    return ::descriptor_table_playerinformation_2eproto.file_level_metadata[kIndexInFileMessages];
-  }
-
-  public:
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kInfoFieldNumber = 1,
-  };
-  // .PlayerInformation.Information info = 1;
-  bool has_info() const;
-  private:
-  bool _internal_has_info() const;
-  public:
-  void clear_info();
-  const ::PlayerInformation::Information& info() const;
-  ::PlayerInformation::Information* release_info();
-  ::PlayerInformation::Information* mutable_info();
-  void set_allocated_info(::PlayerInformation::Information* info);
-  private:
-  const ::PlayerInformation::Information& _internal_info() const;
-  ::PlayerInformation::Information* _internal_mutable_info();
-  public:
-  void unsafe_arena_set_allocated_info(
-      ::PlayerInformation::Information* info);
-  ::PlayerInformation::Information* unsafe_arena_release_info();
-
-  // @@protoc_insertion_point(class_scope:PlayerInformation.SetInformationRequest)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  ::PlayerInformation::Information* info_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr player_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_playerinformation_2eproto;
 };
@@ -727,7 +429,7 @@ class SetInformationReply PROTOBUF_FINAL :
                &_SetInformationReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    2;
 
   friend void swap(SetInformationReply& a, SetInformationReply& b) {
     a.Swap(&b);
@@ -798,15 +500,15 @@ class SetInformationReply PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kResultFieldNumber = 1,
+    kPlayerIdFieldNumber = 1,
   };
-  // int32 result = 1;
-  void clear_result();
-  ::PROTOBUF_NAMESPACE_ID::int32 result() const;
-  void set_result(::PROTOBUF_NAMESPACE_ID::int32 value);
+  // int32 player_id = 1;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_result() const;
-  void _internal_set_result(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:PlayerInformation.SetInformationReply)
@@ -816,7 +518,7 @@ class SetInformationReply PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 result_;
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_playerinformation_2eproto;
 };
@@ -831,418 +533,240 @@ class SetInformationReply PROTOBUF_FINAL :
 #endif  // __GNUC__
 // Information
 
-// string playerid = 1;
-inline void Information::clear_playerid() {
-  playerid_.ClearToEmpty();
+// string player_id = 1;
+inline void Information::clear_player_id() {
+  player_id_.ClearToEmpty();
 }
-inline const std::string& Information::playerid() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.Information.playerid)
-  return _internal_playerid();
+inline const std::string& Information::player_id() const {
+  // @@protoc_insertion_point(field_get:PlayerInformation.Information.player_id)
+  return _internal_player_id();
 }
-inline void Information::set_playerid(const std::string& value) {
-  _internal_set_playerid(value);
-  // @@protoc_insertion_point(field_set:PlayerInformation.Information.playerid)
+inline void Information::set_player_id(const std::string& value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:PlayerInformation.Information.player_id)
 }
-inline std::string* Information::mutable_playerid() {
-  // @@protoc_insertion_point(field_mutable:PlayerInformation.Information.playerid)
-  return _internal_mutable_playerid();
+inline std::string* Information::mutable_player_id() {
+  // @@protoc_insertion_point(field_mutable:PlayerInformation.Information.player_id)
+  return _internal_mutable_player_id();
 }
-inline const std::string& Information::_internal_playerid() const {
-  return playerid_.Get();
+inline const std::string& Information::_internal_player_id() const {
+  return player_id_.Get();
 }
-inline void Information::_internal_set_playerid(const std::string& value) {
+inline void Information::_internal_set_player_id(const std::string& value) {
   
-  playerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Information::set_playerid(std::string&& value) {
+inline void Information::set_player_id(std::string&& value) {
   
-  playerid_.Set(
+  player_id_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:PlayerInformation.Information.playerid)
+  // @@protoc_insertion_point(field_set_rvalue:PlayerInformation.Information.player_id)
 }
-inline void Information::set_playerid(const char* value) {
+inline void Information::set_player_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  playerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:PlayerInformation.Information.playerid)
+  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:PlayerInformation.Information.player_id)
 }
-inline void Information::set_playerid(const char* value,
+inline void Information::set_player_id(const char* value,
     size_t size) {
   
-  playerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:PlayerInformation.Information.playerid)
+  // @@protoc_insertion_point(field_set_pointer:PlayerInformation.Information.player_id)
 }
-inline std::string* Information::_internal_mutable_playerid() {
+inline std::string* Information::_internal_mutable_player_id() {
   
-  return playerid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return player_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Information::release_playerid() {
-  // @@protoc_insertion_point(field_release:PlayerInformation.Information.playerid)
-  return playerid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* Information::release_player_id() {
+  // @@protoc_insertion_point(field_release:PlayerInformation.Information.player_id)
+  return player_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Information::set_allocated_playerid(std::string* playerid) {
-  if (playerid != nullptr) {
+inline void Information::set_allocated_player_id(std::string* player_id) {
+  if (player_id != nullptr) {
     
   } else {
     
   }
-  playerid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), playerid,
+  player_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), player_id,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.Information.playerid)
+  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.Information.player_id)
 }
 
-// string playername = 2;
-inline void Information::clear_playername() {
-  playername_.ClearToEmpty();
+// string player_name = 2;
+inline void Information::clear_player_name() {
+  player_name_.ClearToEmpty();
 }
-inline const std::string& Information::playername() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.Information.playername)
-  return _internal_playername();
+inline const std::string& Information::player_name() const {
+  // @@protoc_insertion_point(field_get:PlayerInformation.Information.player_name)
+  return _internal_player_name();
 }
-inline void Information::set_playername(const std::string& value) {
-  _internal_set_playername(value);
-  // @@protoc_insertion_point(field_set:PlayerInformation.Information.playername)
+inline void Information::set_player_name(const std::string& value) {
+  _internal_set_player_name(value);
+  // @@protoc_insertion_point(field_set:PlayerInformation.Information.player_name)
 }
-inline std::string* Information::mutable_playername() {
-  // @@protoc_insertion_point(field_mutable:PlayerInformation.Information.playername)
-  return _internal_mutable_playername();
+inline std::string* Information::mutable_player_name() {
+  // @@protoc_insertion_point(field_mutable:PlayerInformation.Information.player_name)
+  return _internal_mutable_player_name();
 }
-inline const std::string& Information::_internal_playername() const {
-  return playername_.Get();
+inline const std::string& Information::_internal_player_name() const {
+  return player_name_.Get();
 }
-inline void Information::_internal_set_playername(const std::string& value) {
+inline void Information::_internal_set_player_name(const std::string& value) {
   
-  playername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  player_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void Information::set_playername(std::string&& value) {
+inline void Information::set_player_name(std::string&& value) {
   
-  playername_.Set(
+  player_name_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:PlayerInformation.Information.playername)
+  // @@protoc_insertion_point(field_set_rvalue:PlayerInformation.Information.player_name)
 }
-inline void Information::set_playername(const char* value) {
+inline void Information::set_player_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  playername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:PlayerInformation.Information.playername)
+  player_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:PlayerInformation.Information.player_name)
 }
-inline void Information::set_playername(const char* value,
+inline void Information::set_player_name(const char* value,
     size_t size) {
   
-  playername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  player_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:PlayerInformation.Information.playername)
+  // @@protoc_insertion_point(field_set_pointer:PlayerInformation.Information.player_name)
 }
-inline std::string* Information::_internal_mutable_playername() {
+inline std::string* Information::_internal_mutable_player_name() {
   
-  return playername_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return player_name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* Information::release_playername() {
-  // @@protoc_insertion_point(field_release:PlayerInformation.Information.playername)
-  return playername_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* Information::release_player_name() {
+  // @@protoc_insertion_point(field_release:PlayerInformation.Information.player_name)
+  return player_name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void Information::set_allocated_playername(std::string* playername) {
-  if (playername != nullptr) {
+inline void Information::set_allocated_player_name(std::string* player_name) {
+  if (player_name != nullptr) {
     
   } else {
     
   }
-  playername_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), playername,
+  player_name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), player_name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.Information.playername)
+  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.Information.player_name)
 }
 
-// int32 playerlevel = 3;
-inline void Information::clear_playerlevel() {
-  playerlevel_ = 0;
+// int32 player_level = 3;
+inline void Information::clear_player_level() {
+  player_level_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Information::_internal_playerlevel() const {
-  return playerlevel_;
+inline ::PROTOBUF_NAMESPACE_ID::int32 Information::_internal_player_level() const {
+  return player_level_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Information::playerlevel() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.Information.playerlevel)
-  return _internal_playerlevel();
+inline ::PROTOBUF_NAMESPACE_ID::int32 Information::player_level() const {
+  // @@protoc_insertion_point(field_get:PlayerInformation.Information.player_level)
+  return _internal_player_level();
 }
-inline void Information::_internal_set_playerlevel(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void Information::_internal_set_player_level(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  playerlevel_ = value;
+  player_level_ = value;
 }
-inline void Information::set_playerlevel(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_playerlevel(value);
-  // @@protoc_insertion_point(field_set:PlayerInformation.Information.playerlevel)
+inline void Information::set_player_level(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_player_level(value);
+  // @@protoc_insertion_point(field_set:PlayerInformation.Information.player_level)
 }
 
 // -------------------------------------------------------------------
 
 // GetInformationRequest
 
-// string playerid = 1;
-inline void GetInformationRequest::clear_playerid() {
-  playerid_.ClearToEmpty();
+// string player_id = 1;
+inline void GetInformationRequest::clear_player_id() {
+  player_id_.ClearToEmpty();
 }
-inline const std::string& GetInformationRequest::playerid() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.GetInformationRequest.playerid)
-  return _internal_playerid();
+inline const std::string& GetInformationRequest::player_id() const {
+  // @@protoc_insertion_point(field_get:PlayerInformation.GetInformationRequest.player_id)
+  return _internal_player_id();
 }
-inline void GetInformationRequest::set_playerid(const std::string& value) {
-  _internal_set_playerid(value);
-  // @@protoc_insertion_point(field_set:PlayerInformation.GetInformationRequest.playerid)
+inline void GetInformationRequest::set_player_id(const std::string& value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:PlayerInformation.GetInformationRequest.player_id)
 }
-inline std::string* GetInformationRequest::mutable_playerid() {
-  // @@protoc_insertion_point(field_mutable:PlayerInformation.GetInformationRequest.playerid)
-  return _internal_mutable_playerid();
+inline std::string* GetInformationRequest::mutable_player_id() {
+  // @@protoc_insertion_point(field_mutable:PlayerInformation.GetInformationRequest.player_id)
+  return _internal_mutable_player_id();
 }
-inline const std::string& GetInformationRequest::_internal_playerid() const {
-  return playerid_.Get();
+inline const std::string& GetInformationRequest::_internal_player_id() const {
+  return player_id_.Get();
 }
-inline void GetInformationRequest::_internal_set_playerid(const std::string& value) {
+inline void GetInformationRequest::_internal_set_player_id(const std::string& value) {
   
-  playerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void GetInformationRequest::set_playerid(std::string&& value) {
+inline void GetInformationRequest::set_player_id(std::string&& value) {
   
-  playerid_.Set(
+  player_id_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:PlayerInformation.GetInformationRequest.playerid)
+  // @@protoc_insertion_point(field_set_rvalue:PlayerInformation.GetInformationRequest.player_id)
 }
-inline void GetInformationRequest::set_playerid(const char* value) {
+inline void GetInformationRequest::set_player_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  playerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:PlayerInformation.GetInformationRequest.playerid)
+  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:PlayerInformation.GetInformationRequest.player_id)
 }
-inline void GetInformationRequest::set_playerid(const char* value,
+inline void GetInformationRequest::set_player_id(const char* value,
     size_t size) {
   
-  playerid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  player_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:PlayerInformation.GetInformationRequest.playerid)
+  // @@protoc_insertion_point(field_set_pointer:PlayerInformation.GetInformationRequest.player_id)
 }
-inline std::string* GetInformationRequest::_internal_mutable_playerid() {
+inline std::string* GetInformationRequest::_internal_mutable_player_id() {
   
-  return playerid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return player_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* GetInformationRequest::release_playerid() {
-  // @@protoc_insertion_point(field_release:PlayerInformation.GetInformationRequest.playerid)
-  return playerid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* GetInformationRequest::release_player_id() {
+  // @@protoc_insertion_point(field_release:PlayerInformation.GetInformationRequest.player_id)
+  return player_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void GetInformationRequest::set_allocated_playerid(std::string* playerid) {
-  if (playerid != nullptr) {
+inline void GetInformationRequest::set_allocated_player_id(std::string* player_id) {
+  if (player_id != nullptr) {
     
   } else {
     
   }
-  playerid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), playerid,
+  player_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), player_id,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.GetInformationRequest.playerid)
-}
-
-// -------------------------------------------------------------------
-
-// GetInformationReply
-
-// .PlayerInformation.Information info = 1;
-inline bool GetInformationReply::_internal_has_info() const {
-  return this != internal_default_instance() && info_ != nullptr;
-}
-inline bool GetInformationReply::has_info() const {
-  return _internal_has_info();
-}
-inline void GetInformationReply::clear_info() {
-  if (GetArena() == nullptr && info_ != nullptr) {
-    delete info_;
-  }
-  info_ = nullptr;
-}
-inline const ::PlayerInformation::Information& GetInformationReply::_internal_info() const {
-  const ::PlayerInformation::Information* p = info_;
-  return p != nullptr ? *p : reinterpret_cast<const ::PlayerInformation::Information&>(
-      ::PlayerInformation::_Information_default_instance_);
-}
-inline const ::PlayerInformation::Information& GetInformationReply::info() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.GetInformationReply.info)
-  return _internal_info();
-}
-inline void GetInformationReply::unsafe_arena_set_allocated_info(
-    ::PlayerInformation::Information* info) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(info_);
-  }
-  info_ = info;
-  if (info) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PlayerInformation.GetInformationReply.info)
-}
-inline ::PlayerInformation::Information* GetInformationReply::release_info() {
-  
-  ::PlayerInformation::Information* temp = info_;
-  info_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::PlayerInformation::Information* GetInformationReply::unsafe_arena_release_info() {
-  // @@protoc_insertion_point(field_release:PlayerInformation.GetInformationReply.info)
-  
-  ::PlayerInformation::Information* temp = info_;
-  info_ = nullptr;
-  return temp;
-}
-inline ::PlayerInformation::Information* GetInformationReply::_internal_mutable_info() {
-  
-  if (info_ == nullptr) {
-    auto* p = CreateMaybeMessage<::PlayerInformation::Information>(GetArena());
-    info_ = p;
-  }
-  return info_;
-}
-inline ::PlayerInformation::Information* GetInformationReply::mutable_info() {
-  // @@protoc_insertion_point(field_mutable:PlayerInformation.GetInformationReply.info)
-  return _internal_mutable_info();
-}
-inline void GetInformationReply::set_allocated_info(::PlayerInformation::Information* info) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete info_;
-  }
-  if (info) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(info);
-    if (message_arena != submessage_arena) {
-      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, info, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  info_ = info;
-  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.GetInformationReply.info)
-}
-
-// -------------------------------------------------------------------
-
-// SetInformationRequest
-
-// .PlayerInformation.Information info = 1;
-inline bool SetInformationRequest::_internal_has_info() const {
-  return this != internal_default_instance() && info_ != nullptr;
-}
-inline bool SetInformationRequest::has_info() const {
-  return _internal_has_info();
-}
-inline void SetInformationRequest::clear_info() {
-  if (GetArena() == nullptr && info_ != nullptr) {
-    delete info_;
-  }
-  info_ = nullptr;
-}
-inline const ::PlayerInformation::Information& SetInformationRequest::_internal_info() const {
-  const ::PlayerInformation::Information* p = info_;
-  return p != nullptr ? *p : reinterpret_cast<const ::PlayerInformation::Information&>(
-      ::PlayerInformation::_Information_default_instance_);
-}
-inline const ::PlayerInformation::Information& SetInformationRequest::info() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.SetInformationRequest.info)
-  return _internal_info();
-}
-inline void SetInformationRequest::unsafe_arena_set_allocated_info(
-    ::PlayerInformation::Information* info) {
-  if (GetArena() == nullptr) {
-    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(info_);
-  }
-  info_ = info;
-  if (info) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PlayerInformation.SetInformationRequest.info)
-}
-inline ::PlayerInformation::Information* SetInformationRequest::release_info() {
-  
-  ::PlayerInformation::Information* temp = info_;
-  info_ = nullptr;
-  if (GetArena() != nullptr) {
-    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
-  }
-  return temp;
-}
-inline ::PlayerInformation::Information* SetInformationRequest::unsafe_arena_release_info() {
-  // @@protoc_insertion_point(field_release:PlayerInformation.SetInformationRequest.info)
-  
-  ::PlayerInformation::Information* temp = info_;
-  info_ = nullptr;
-  return temp;
-}
-inline ::PlayerInformation::Information* SetInformationRequest::_internal_mutable_info() {
-  
-  if (info_ == nullptr) {
-    auto* p = CreateMaybeMessage<::PlayerInformation::Information>(GetArena());
-    info_ = p;
-  }
-  return info_;
-}
-inline ::PlayerInformation::Information* SetInformationRequest::mutable_info() {
-  // @@protoc_insertion_point(field_mutable:PlayerInformation.SetInformationRequest.info)
-  return _internal_mutable_info();
-}
-inline void SetInformationRequest::set_allocated_info(::PlayerInformation::Information* info) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
-  if (message_arena == nullptr) {
-    delete info_;
-  }
-  if (info) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(info);
-    if (message_arena != submessage_arena) {
-      info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, info, submessage_arena);
-    }
-    
-  } else {
-    
-  }
-  info_ = info;
-  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.SetInformationRequest.info)
+  // @@protoc_insertion_point(field_set_allocated:PlayerInformation.GetInformationRequest.player_id)
 }
 
 // -------------------------------------------------------------------
 
 // SetInformationReply
 
-// int32 result = 1;
-inline void SetInformationReply::clear_result() {
-  result_ = 0;
+// int32 player_id = 1;
+inline void SetInformationReply::clear_player_id() {
+  player_id_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 SetInformationReply::_internal_result() const {
-  return result_;
+inline ::PROTOBUF_NAMESPACE_ID::int32 SetInformationReply::_internal_player_id() const {
+  return player_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 SetInformationReply::result() const {
-  // @@protoc_insertion_point(field_get:PlayerInformation.SetInformationReply.result)
-  return _internal_result();
+inline ::PROTOBUF_NAMESPACE_ID::int32 SetInformationReply::player_id() const {
+  // @@protoc_insertion_point(field_get:PlayerInformation.SetInformationReply.player_id)
+  return _internal_player_id();
 }
-inline void SetInformationReply::_internal_set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void SetInformationReply::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
-  result_ = value;
+  player_id_ = value;
 }
-inline void SetInformationReply::set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:PlayerInformation.SetInformationReply.result)
+inline void SetInformationReply::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:PlayerInformation.SetInformationReply.player_id)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

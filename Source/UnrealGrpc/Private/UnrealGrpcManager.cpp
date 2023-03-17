@@ -13,3 +13,4 @@ UUnrealGrpcManager& UUnrealGrpcManager::Get(UObject* Context)
 
 	return *UGameInstance::GetSubsystem<UUnrealGrpcManager>(Context->GetWorld()->GetGameInstance());
 }
+
